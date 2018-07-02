@@ -74,12 +74,10 @@ class Index extends BaseController
 	public function region(){
 		return view();
 	}
-
 	public function test(){
-		$memberinfo = Member::getMemberInfo();
-		var_dump($memberinfo);
-		exit;
+		
 	}
+	
 
 }
 ?>
