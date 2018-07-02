@@ -5,3 +5,6 @@ composer.lock
 /.svn
 /application/extra/setting.php
 /application/extra/secure.php
+/application/database.php
+/application/config.php
+/application/route.php
