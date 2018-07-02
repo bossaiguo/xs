@@ -1,0 +1,111 @@
+{include file="public/header" /}
+<div>
+	<img src="__IMG__/cooperation/01.jpg" width='100%'>
+</div>
+<div class="cooperation-advantage">
+	<div style="margin-bottom:40px"><img src="__IMG__/cooperation/01.png" width='100%'></div>
+	<div class="clear"></div>
+	<div class="cooperation-advantage-item">
+		<div><img src="__IMG__/cooperation/02.png"></div>
+		<div><span>律师服务有保障</span></div>
+		<div><span style="font-size:12px">律师服务出问题，网站全额退款</span></div>
+	</div>
+	<div class="cooperation-advantage-item">
+		<div><img src="__IMG__/cooperation/03.png"></div>
+		<div><span>高性价比(价格合理)</span></div>
+		<div><span style="font-size:12px">通过律师竞标，避免报价虚高</span></div>
+	</div>
+	<div class="clear"></div>
+	<div class="cooperation-advantage-center">
+		<img src="__IMG__/cooperation/06.png">
+		<div><span>律师真实可靠</span></div>
+		<div><span>严格审核律师执业资格，个人履历</span></div>
+		<div><a href="trust">查看详情</a></div>
+	</div>
+	<div class="clear"></div>
+	<div class="cooperation-advantage-item">
+		<div><img src="__IMG__/cooperation/04.png"></div>
+		<div><span>数10万位律师</span></div>
+		<div><span style="font-size:12px">数10万位律师，任您挑选</span></div>
+	</div>
+	<div class="cooperation-advantage-item">
+		<div><img src="__IMG__/cooperation/05.png"></div>
+		<div><span>隐私全面保护</span></div>
+		<div><span style="font-size:12px">系统人工双重审核</span></div>
+	</div>
+	<div class="clear"></div>
+	<div class="cooperation-samecity">
+		<div class="clear"></div>
+		<div><span>因为互联网，只要您找，我们都在</span></div>
+		<div><span>随时在您身边的律师团</span></div>
+	</div>
+	<div><img src="__IMG__/cooperation/13.png" width=100%></div>
+	<div class="latest-entrust">
+	    <div class="latest-entrust-title">
+	        <span style="display:inline-block;width:18%;color:#163061;text-align:center">名称</span>
+	        <span style="display:inline-block;width:18%;color:#163061;text-align:center">地区</span>
+	        <span style="display:inline-block;width:19%;color:#163061;text-align:center">案件类别</span>
+	        <span style="display:inline-block;width:19%;color:#163061;text-align:center">合作律师</span>
+	        <span style="display:inline-block;width:19%;color:#163061;text-align:center">合作时间</span>
+	    </div>
+	    <div id="donate_carousel">
+	        <ul style="margin-left:0;padding-left:0">
+	           {volist name="result" id="result"}
+	               <li>
+	                   <div class='latest-entrust-content'>
+	                       <span style="display:inline-block;width:18%;text-align:center">{$result.username}</span>
+	                       <span style="display:inline-block;width:18%;text-align:center">{$result.linkage}</span>
+	                       <span style="display:inline-block;width:19%;text-align:center">{$result.classification}</span>
+	                       <span style="display:inline-block;width:19%;text-align:center">{$result.lawyername}</span>
+	                       <span style="display:inline-block;width:19%;text-align:center">{$result.inputtime}</span>
+	                   </div>
+	               </li>
+	           {/volist}
+	        </ul>
+	    </div>
+	</div>
+</div>
+{include file="public/footer" /}
+<!-- 新闻滚动 -->
+<script type="text/javascript">
+    $.fn.extend({
+        Scroll: function(opt, callback) {
+            //参数初始化
+            if (!opt) var opt = {};
+            var _this = this.eq(0).find("ul:first");
+            var lineH = _this.find("li:first").height(), //获取行高
+                line = opt.line ? parseInt(opt.line, 10) : parseInt(this.height() / lineH, 10), //每次滚动的行数，默认为一屏，即父容器高度
+                speed = opt.speed ? parseInt(opt.speed, 10) : 500, //卷动速度，数值越大，速度越慢（毫秒）
+                timer = opt.timer ? parseInt(opt.timer, 10) : 3000; //滚动的时间间隔（毫秒）
+
+            if (line == 0) line = 1;
+            var upHeight = 0 - line * lineH;
+            //滚动函数
+            scrollUp = function() {
+                _this.animate({
+                    marginTop: upHeight
+                }, speed, function() {
+                    for (i = 1; i <= line; i++) {
+                        _this.find("li:first").appendTo(_this);
+                    }
+                    _this.css({
+                        marginTop: 0
+                    });
+                });
+            }
+            //鼠标事件绑定
+            _this.hover(function() {
+                clearInterval(timerID);
+            }, function() {
+                timerID = setInterval("scrollUp()", timer);
+            }).mouseout();
+        }
+    })
+    $(function() {
+        $('#donate_carousel').Scroll({
+            line: 1,
+            speed: 800,
+            timer: 2000
+        });
+    });
+</script>

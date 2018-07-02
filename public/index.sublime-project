@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"path": "D:\\soft\\phpstudy\\WWW\\xs"
+		}
+	],
+	"settings":
+	{
+		"xdebug":
+		{
+			"url": "http://120.0.0.1/xs/public"
+		}
+	}
+}

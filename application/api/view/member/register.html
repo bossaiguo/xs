@@ -1,0 +1,441 @@
+{include file="public/header" /}
+	<div class="register-jumbotron">
+		<div class='clear'></div>
+		<p>欢迎加入律师网（专注刑事案件）</p>
+		<p>——— 只要3小步，轻松搞定注册 ———</p>
+		<p>请选择您要注册会员的类型</p>
+		<div class='register-row'>
+			<div class='clear'></div>
+			<div class='register-col' id='btn_1' onclick='switchRegister(1)'>
+				<img src="__IMG__/register/02.png" alt="" >
+				<div>律师用户</div>
+			</div>
+			<div class='register-col' id='btn_2' onclick='switchRegister(2)'>
+				<img src="__IMG__/register/03.png" alt="">
+				<div>普通用户</div>
+			</div>
+		</div>
+	</div>
+	<!-- 提交信息 -->
+	<div class="zui-mr10 zui-mb10 zui-ml10 demo-bgfff pd10">
+        <!-- 律师用户注册表单 -->
+	    <form class="zform zform-radius" action="{:url('member/registerLaw')}" id="form_1" method="post" enctype="multipart/form-data" onsubmit="return true">
+	            <fieldset class="zform-fieldset">
+                    <div class="zform-control">
+                        <div class="control-field">
+                            <input type="text" id='username' name='username' class="field-text" placeholder="请输入用户名" data-conditional="usernameCheck" data-required="true" data-descriptions="username" isrepeat="">
+                        </div>     
+                    </div>
+                    <div class="zform-control">
+                        <div class="control-field">
+                            <input type="text" id='lawoffice' name='lawoffice' class="field-text" placeholder="请输入律所名称" data-conditional="lawnameCheck" data-required="true" data-descriptions="lawoffice">
+                        </div>     
+                    </div>
+                    <div class="zform-control">
+                        <div class="control-field">
+                            <input type="text" id="license" name="license" data-conditional="licenseNumCheck" class="field-text" placeholder="请输入执业证号" data-required="true" data-descriptions="license" capture="camera">
+                        </div>     
+                    </div>
+                    <div class="zform-control">
+                        <div class="control-field field-text" style="height:110px">
+                            <div>
+                                <span style='margin-left:2px;color:#8B8378'>请上传执业证</span>
+                                <span style='float:right;margin-right:2px;color:#8B8378;font-size:1.4rem'>正反面</span>
+                            </div>
+                            <div class="z_photo" id="z_photo_1">
+                                <label class="z_file" id="z_file_1" for='licenseUrl'>
+                                    <input type="file" name="licenseUrl[]" id="licenseUrl" value="" accept="image/jpg,image/jpeg,image/png" multiple="" capture="camera" data-conditional="checkLicenseUrl"  data-descriptions="licenseUrl" data-required="true">
+                                </label>
+                                 <!--遮罩层-->
+                                <div class="z_mask">
+                                    <!--弹出框-->
+                                    <div class="z_alert">
+                                        <p>确定要删除这张图片吗？</p>
+                                        <p>
+                                            <span class="z_cancel">取消</span>
+                                            <span class="z_sure">确定</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="zform-control">
+                        <div class="control-field">
+                            <input type="text" name="numbersf" data-conditional="idNumCheck" id="numbersf" class="field-text" placeholder="请输入身份证号" data-required="true" data-descriptions="numbersf">
+                        </div>     
+                    </div>
+                    <div class="zform-control">
+                       <div class="control-field field-text" style="height:110px">
+                            <div>
+                                <span style='margin-left:2px;color:#8B8378'>请上传身份证</span>
+                                <span style='float:right;margin-right:2px;color:#8B8378;font-size:1.4rem'>正反面</span>
+                            </div>
+                            <div class="z_photo" id="z_photo_2">
+                                <label class="z_file" id="z_file_2" for='authidUrl'>
+                                    <input type="file" name="authidUrl" id="authidUrl" value="" accept="image/jpg,image/jpeg,image/png" multiple="" data-conditional="checkAuthidUrl"  data-descriptions="authidUrl">
+                                </label>
+                            </div>
+                        </div>        
+                    </div>
+                    <div class="zform-control">
+                        <div class="control-field">
+                            <input type="password" name="password" id="password" data-conditional="passwordCheck" class="field-text" placeholder="请输入密码" data-required="true" data-descriptions="password">
+                        </div>     
+                    </div>
+                    <div class="zform-control">
+                        <div class="control-field">
+                            <input type="password"  id="confirmpwd" class="field-text"  placeholder="再次输入密码确认" data-required="true" data-descriptions="confirmpassword" data-conditional="confirmpwd">
+                        </div>
+                    </div>
+                    <div class="zform-control">
+                        <div class="control-field">
+                            <input type="text" name="phone" id="mobile" class="field-text" placeholder="请输入手机号码" data-validate="phone" data-describedby="phone-description">
+                        </div>
+                    </div>             
+	            </fieldset>
+	            <input type="submit"  value="律师用户注册" class="zbtn zbtn-primary zbtn-full zbtn-lg">    
+	    </form>
+        <!-- 普通用户注册表单 -->
+        <form class="zform zform-radius" action="{:url('member/registerMember')}" id="form_2" method="post" style='display:none' onsubmit="return true">
+            <fieldset class="zform-fieldset">
+                <div class="zform-control">
+                    <div class="control-field">
+                        <input type="text" id='username_common' name='username' class="field-text" placeholder="请输入用户名" data-conditional="usernameCheck" data-required="true" data-descriptions="username_common" isrepeat=''>
+                    </div>     
+                </div>
+                <div class="zform-control">
+                    <div class="control-field">
+                        <input type="password" name="password" id="password_common" data-conditional="passwordCheck" class="field-text" placeholder="请输入密码" data-required="true" data-descriptions="password_common">
+                    </div>     
+                </div>
+                <div class="zform-control">
+                    <div class="control-field">
+                        <input type="password"  id="confirmpassword_common" class="field-text"  placeholder="再次输入密码确认" data-required="true" data-descriptions="confirmpassword_common" data-conditional="confirmpwd">
+                    </div>
+                </div>
+                <div class="zform-control">
+                    <div class="control-field">
+                        <input type="text" name="mobile" id="mobile_common" class="field-text" placeholder="请输入手机号码" data-validate="phone" data-describedby="phone-description">
+                    </div>
+                </div>             
+            </fieldset>
+            <input type="submit"  value="普通用户注册" class="zbtn zbtn-primary zbtn-full zbtn-lg" id='memberSubmit'>    
+        </form>
+	</div>
+	<!-- end提交信息 -->
+{include file="public/footer" /}
+<!-- 用户名验证 -->
+<script type="text/javascript">
+    $('#username').blur(function(){
+        var username=$('#username').val();
+        $.ajax({
+            url:"index.php/api/member/checkName",   
+            type:'POST',  
+            dataType:'json',
+            async:false,
+            data: {username:username},
+            success:function(data){
+                if(data==1){
+                   var isrepeat=true;
+                   $('#username').attr('isrepeat',isrepeat)
+                }else{
+                    var isrepeat=false;
+                    $('#username').attr('isrepeat',isrepeat)
+                }
+            }
+        })
+        
+    });
+    $('#username_common').blur(function(){
+        var username=$('#username_common').val();
+        $.ajax({
+            url:"index.php/api/member/checkName",   
+            type:'POST',  
+            dataType:'json',
+            async:false,
+            data: {username:username},
+            success:function(data){
+                if(data==1){
+                   var isrepeat=true;
+                   $('#username_common').attr('isrepeat',isrepeat)
+                }else{
+                    var isrepeat=false;
+                    $('#username_common').attr('isrepeat',isrepeat)
+                }
+            }
+        })
+        
+    })
+</script>
+
+
+<script type="text/javascript">
+$(function(){
+     $.mvalidateExtend({
+         phone:{
+             required : true,   
+             pattern : /^0?1[3|4|5|8][0-9]\d{8}$/,
+             each:function(){
+                
+             },
+             descriptions:{
+                 required : '<div class="field-invalidmsg">请输入手机号码</div>',
+                 pattern : '<div class="field-invalidmsg">您输入的手机号码格式不正确</div>',
+                 valid : '<div class="field-validmsg">正确</div>'
+             }
+         }
+     });
+     $("#form_11").mvalidate({
+         type:1,
+         onKeyup:true,
+         sendForm:true,
+         firstInvalidFocus:false,
+         valid:function(event,options){
+             //点击提交按钮时,表单通过验证触发函数
+             
+          return true;
+          event.preventDefault();
+           
+         },
+         invalid:function(event, status, options){
+             //点击提交按钮时,表单未通过验证触发函数
+         },
+         eachField:function(event,status,options){
+             //点击提交按钮时,表单每个输入域触发这个函数 this 执向当前表单输入域，是jquery对象
+         },
+         eachValidField:function(val){},
+         eachInvalidField:function(event, status, options){},
+         conditional:{
+             confirmpwd:function(){
+                 return $("#password").val()==$("#confirmpwd").val();
+             },
+             usernameCheck:function(){
+             	var username=$('#username').val();
+             	var nameStyle= /^[a-zA-Z0-9_\u4e00-\u9fa5]+$/.test(username);
+                var isrepeat=$('#username').attr('isrepeat');
+                if(!nameStyle){
+                    return false;
+                }else{
+                    if(isrepeat == 'true'){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
+             },
+             lawnameCheck:function(){
+             	var lawoffice=$('#lawoffice').val();
+             	return /^[a-zA-Z0-9_\u4e00-\u9fa5]+$/.test(lawoffice);
+             },
+             licenseNumCheck:function(){
+             	var license=$('#license').val();
+             	return /^\d{17}$/.test(license);
+             },
+             idNumCheck:function(){
+             	var numbersf=$('#numbersf').val();
+             	return /^\d{17}$/.test(numbersf);
+             },
+             passwordCheck:function(){
+             	var password=$('#password').val();
+             	return /^\w{6,20}$/.test(password);
+             },
+             checkLicenseUrl:function(){
+                var files = document.getElementById('licenseUrl');
+                if(files>2){
+                    return false;
+                }else{
+                    return true;
+                }
+             },
+             checkAuthidUrl:function(){
+                var files = document.getElementById('authidUrl');
+                if(files>2){
+                    return false;
+                }else{
+                    return true;
+                }
+             }
+
+         },
+         descriptions:{
+             username:{
+                 required : '请输入用户名',
+                 conditional : '用户名格式不对，或已注册'
+             },
+             lawoffice:{
+             	required : '请输入律所名称',
+             	conditional : '律所名称格式不正确'
+
+             },
+             license:{
+             	required : '请输入执业证号',
+             	conditional : '执业证号位数不对'
+             },
+             numbersf:{
+             	required : '请输入身份证号',
+             	conditional : '身份证位数不对'
+             },
+             password:{
+                  required : '请输入密码',
+                  conditional : '密码应大于6位，由数字、字母、下划线'
+
+             },
+             confirmpassword:{
+                 required : '请再次输入密码',
+                 conditional : '两次密码不一样'
+             },
+             licenseUrl:{
+                required : '请上传执业证',
+                conditional:'图片数量过多，或者格式过大'
+             },
+             authidUrl:{
+                required : '请上传身份证',
+                conditional:'图片数量过多，或者格式过大'
+             }
+         }
+     });
+})
+</script>
+<script type="text/javascript">
+
+    $("#form_2").mvalidate({
+        type:1,
+        onKeyup:true,
+        sendForm:true,
+        firstInvalidFocus:false,
+        valid:function(event,options){
+            //点击提交按钮时,表单通过验证触发函数
+            return true;
+            event.preventDefault();
+            // alert('11111')
+        },
+        invalid:function(event, status, options){
+            //点击提交按钮时,表单未通过验证触发函数
+        },
+        eachField:function(event,status,options){
+            //点击提交按钮时,表单每个输入域触发这个函数 this 执向当前表单输入域，是jquery对象
+        },
+        eachValidField:function(val){},
+        eachInvalidField:function(event, status, options){},
+        conditional:{
+            confirmpwd:function(){
+                return $("#password_common").val()==$("#confirmpassword_common").val();
+            },
+            usernameCheck:function(){
+                var username=$('#username_common').val();
+                var nameStyle= /^[a-zA-Z0-9_\u4e00-\u9fa5]+$/.test(username);
+                var isrepeat=$('#username_common').attr('isrepeat');
+
+                if(!nameStyle){
+                   return false;
+                }else{
+                   if(isrepeat == 'true'){
+                       return true;
+                   }else{
+                       return false;
+                   }
+               }
+            },
+            passwordCheck:function(){
+                var password=$('#password_common').val();
+                return /^\w{6,20}$/.test(password);
+            }
+        },
+
+        descriptions:{
+            username_common:{
+                required : '请输入用户名',
+                conditional : '用户名格式不对，或已注册'
+            },
+            password_common:{
+                 required : '请输入密码',
+                 conditional : '密码应大于6位，由数字、字母、下划线'
+
+            },
+            confirmpassword_common:{
+                required : '请再次输入密码',
+                conditional : '两次密码不一样'
+            }
+        }
+    });   
+</script>
+<script type="text/javascript">
+// 多图上传
+$('#z_photo_1').on('change','#licenseUrl',function(){
+    imgChange('z_photo_1','z_file_1','licenseUrl');
+})
+$('#z_photo_2').on('change','#authidUrl',function(){
+    imgChange('z_photo_2','z_file_2','authidUrl');
+})
+   function imgChange(obj1='', obj2='',filename='') {
+
+       //获取点击的文本框
+       var file = document.getElementById(filename);
+       //存放图片的父级元素
+       var imgContainer = document.getElementById(obj1);
+       //获取的图片文件
+       var fileList = file.files;
+       //文本框的父级元素
+       var input = document.getElementById(obj2);
+       var imgArr = [];
+       //遍历获取到得图片文件
+       for (var i = 0; i < fileList.length; i++) {
+           var imgUrl = window.URL.createObjectURL(file.files[i]);
+           imgArr.push(imgUrl);
+           var img = document.createElement("img");
+           img.setAttribute("src", imgArr[i]);
+           // img.setAttribute("name",filename);
+           var imgAdd = document.createElement("div");
+           imgAdd.setAttribute("class", "z_addImg");
+           imgAdd.setAttribute("name",filename);
+           imgAdd.appendChild(img);
+           imgContainer.appendChild(imgAdd);
+       };
+       imgRemove(filename);
+   };
+
+   function imgRemove(filename) {
+       var imgList = document.getElementsByName(filename);
+       var mask = document.getElementsByClassName("z_mask")[0];
+       var cancel = document.getElementsByClassName("z_cancel")[0];
+       var sure = document.getElementsByClassName("z_sure")[0];
+       for (var j = 0; j < imgList.length; j++) {
+           imgList[j].index = j;
+           imgList[j].onclick = function() {
+               var t = this;
+               mask.style.display = "block";
+               cancel.onclick = function() {
+                   mask.style.display = "none";
+               };
+               sure.onclick = function() {
+                   mask.style.display = "none";
+                  t.setattribute("id", "remove");   
+                  $("#remove").remove();
+               };
+
+           }
+       };
+   };
+
+   
+</script>
+<script type='text/javascript'>
+    $("#form_1").show();
+    $("#btn_1").addClass("choice-type");
+    function switchRegister(n){
+        for (var i = 1; i <= 2; i++) {
+            $("#form_"+i).hide();
+            $("#btn_"+i).removeClass("choice-type");
+        };
+        $("#form_"+n).show();
+        $("#btn_"+n).addClass("choice-type");
+    }
+</script>
+<script type="text/javascript">
+$(function(){ 
+    $('#memberSubmit').on('click',function(){
+        $('#form2').submit(); 
+    })
+})
+</script>

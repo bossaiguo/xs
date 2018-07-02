@@ -1,0 +1,341 @@
+{include file="public/header" /}
+<link rel="stylesheet" type="text/css" href="__STA__/areaselect/mobileSelect.css">
+<script type='text/javascript' src='__STA__/areaselect/mobileSelect.js'></script>
+	<div class='main-content' style='width:100%;overflow:hidden'>
+		<div><img src="__IMG__/entrust/01.jpg" alt="" width='100%'></div>
+			<!-- entrust introduce -->
+			<div class="company-advantage-entrust" >
+			  	<div class="pull-left company-advantage-content entrust-introduce-1" >
+		  			<div style="margin-top:10px;margin-bottom:10px">
+		  				<span>
+		  					<img src="__IMG__/entrust/01.png" alt="" style='margin-top:-5px'>
+		  				</span>
+		  				<span style='font-size:1.6rem;font-weight:bold;margin-left:5px'>免费</span>
+		  			</div>
+		  			<div style="width:90%;margin:0 auto">
+		  				<span>律师网专注刑事案件，律师已全部经过实名认证</span>
+		  			</div>
+				</div>
+			  	<div class="pull-left company-advantage-content entrust-introduce-2" >
+					<div style="margin-top:10px;margin-bottom:10px">
+						<span><img src="__IMG__/entrust/02.png" alt="" style='margin-top:-5px'></span>
+						<span style='font-size:1.6rem;font-weight:bold;margin-left:5px'>安全</span>
+					</div>
+					<div style="width:90%;margin:0 auto">
+						<span>10万专业律师，为您提供可诉讼方案</span>
+					</div>
+				</div>
+				<div class="pull-left company-advantage-content entrust-introduce-3" >
+					<div style="margin-top:10px;margin-bottom:10px">
+						<span><img src="__IMG__/entrust/03.png" alt="" style='margin-top:-5px'></span>
+						<span style='font-size:1.6rem;font-weight:bold;margin-left:5px'>海量</span>
+					</div>
+					<div style="width:90%;margin:0 auto">
+						<span>律师费自主协商，更经济透明</span>
+					</div>
+				</div>
+			  	<div class="pull-left company-advantage-content entrust-introduce-4" >
+					<div style="margin-top:10px;margin-bottom:10px">
+						<span><img src="__IMG__/entrust/04.png" alt="" style='margin-top:-5px'></span>
+						<span style='font-size:1.6rem;font-weight:bold;margin-left:5px'>省钱</span>
+					</div>
+					<div style="width:90%;margin:0 auto"><span>免费提交案件，专业律师免费为您分析案情</span></div>
+				</div>
+			</div>
+			<!-- end  entrust introduce-->
+
+			<!-- entrust table -->
+            <div class="entrust-table">
+    			<form class="zform zform-radius" action="" id="form_1" method="post" enctype="multipart/form-data" onsubmit="return true">
+    				<div class="entrust-table-introduce"><span>亲爱的用户，请仔细填写以下各项</span></div>
+    				<fieldset class="zform-fieldset">
+    					<div class="zform-control entrust-table-item" style="margin-top:8px">
+    						<div class="item-title"><span>委托标题：</span></div>
+    					    <div class="control-field">
+    					        <input type="text" id='title' name='title' class="field-text entrust-field-text" placeholder="请输入委托标题" data-conditional="titleCheck" data-required="true" data-descriptions="title" isrepeat="">
+    					    </div>    
+    					</div>
+    					<div class="zform-control entrust-table-item" style="height:120px">
+                            <div class="item-title"><span>案件描述：</span></div>
+                                <div class="control-field">
+                                    <textarea id="content" class="field-area" placeholder="案件描述" rows="4" data-required="true" data-descriptions="content" data-conditional="contentCheck" name="content"></textarea>
+                                </div>
+                        </div>
+    					<div class="zform-control entrust-table-item">
+    						<div class="item-title"><span>案件类型：</span></div>
+                            <div class="control-field">
+                                <input type="hidden" name="classification" id="hideClassification">
+                                <input class="field-select" data-required="true" data-descriptions="classification" placeholder="请选择案件类型" id="classification">
+                            </div>
+                        </div>
+    					<div class="zform-control entrust-table-item">
+    						<div class="item-title"><span>涉案金额：</span></div>
+                            <div class="control-field">
+                                <input type="hidden" name="accountMoney" id="hideAccountMoney">
+                                <input class="field-select" data-required="true" data-descriptions="accountMoney" placeholder="请选择涉案金额" name="accountMoney" id="accountMoney">
+                            </div>
+                        </div>
+                        <div class="zform-control entrust-table-item">
+                        	<div class="item-title"><span>委托费用：</span></div>
+                            <div class="control-field">
+                                <input type="text" id='entrustcost' name='entrustcost' class="field-text entrust-field-text" placeholder="请输入委托费用" data-required="true" data-descriptions="entrustcost" >
+                            </div>   
+                        </div>
+    					<div class="zform-control entrust-table-item">
+    						<div class="item-title"><span>案件地区：</span></div>
+                            <div class="control-field">
+                                <input  type="hidden" name="linkage" id="hideLinkage" >
+                                <input class="field-select" type="text" data-required="true" data-descriptions="linkage" placeholder="请选择案件地区" id="linkage" >
+                            </div>
+                        </div>
+    				</fieldset>
+    				<input type="submit"  value="提交我的委托" class="zbtn zbtn-primary zbtn-full zbtn-lg" id='memberSubmit' style="width:50%;margin:0 auto;background:#5e5872;padding: 5px 16px;"> 
+    			</form>
+            </div>
+			<!-- end entrust table -->
+
+            <!-- entrust advantage -->
+            <div class="entrust-advantage">
+                <div class="entrust-advantage-container">
+                    <div class="entrust-advantage-title">
+                        <div class="clear"></div>
+                        <div>委托我们的四大优势</div>
+                        <div>我们的专业为您保卫护航</div>
+                    </div>
+                    <div class="entrust-advantage-content">
+                        <div>
+                            <span>01</span>
+                            <span></span>
+                        </div>
+                        <div>
+                            <span>资深主任审核案件，资深律所主任对每个案件办案思路、证据链和庭审进行审核，监察，为您的胜诉竭尽全力。</span>
+                        </div>
+                    </div>
+                    <div class="entrust-advantage-content">
+                        <div>
+                            <span>02</span>
+                            <span></span>
+                        </div>
+                        <div>
+                            <span>案件流程化管理，每个案件都经过15道标准化流程处理，确保案件办案质量</span>
+                        </div>
+                    </div>
+                    <div class="entrust-advantage-content">
+                        <div>
+                            <span>03</span>
+                            <span></span>
+                        </div>
+                        <div>
+                            <span>全程服务跟进，为每个案件指派专门办案助理跟进案子进度，为客户提供一对一服务</span>
+                        </div>
+                    </div>
+                    <div class="entrust-advantage-content">
+                        <div>
+                            <span>04</span>
+                            <span></span>
+                        </div>
+                        <div>
+                            <span>个人保障，服务便捷高效透明，你可以随时了解案件进入，让你无后顾之忧，律师实行专业化分工，让你获得专业法律服务</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end entrst advantage -->
+
+            <!-- the latest entrust -->
+            <div class="latest-entrust">
+                <div class="latest-entrust-title">
+                    <span>最新委托</span>
+                </div>
+                <div id="donate_carousel">
+                    <ul style="margin-left:0;padding-left:0">
+                        {volist name="result" id="result"}
+                            <li>
+                                <div class='latest-entrust-content'>
+                                    <span>{$result.title}</span>
+                                    <span>{$result.accountMoney}</span>
+                                    <span>{$result.linkage}</span>
+                                    <span>电话:{$result.phone}</span>
+                                    <img src="__IMG__/entrust/05.png">
+                                </div>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+            <!-- end the latest entrust -->
+	</div>
+<script type="text/javascript">
+$(function(){
+     $.mvalidateExtend({
+     });
+     $("#form_1").mvalidate({
+         type:1,
+         onKeyup:true,
+         sendForm:true,
+         firstInvalidFocus:false,
+         valid:function(event,options){
+             //点击提交按钮时,表单通过验证触发函数
+             
+          return true;
+          event.preventDefault();
+           
+         },
+         invalid:function(event, status, options){
+             //点击提交按钮时,表单未通过验证触发函数
+         },
+         eachField:function(event,status,options){
+             //点击提交按钮时,表单每个输入域触发这个函数 this 执向当前表单输入域，是jquery对象
+         },
+         eachValidField:function(val){},
+         eachInvalidField:function(event, status, options){},
+         conditional:{
+             titleCheck:function(){
+                var title = $("#title").val().length;
+                console.log(title)
+                // console.log(title.length)
+                 if(title < 30){
+                    return true;
+                 }else{
+                    return false
+                 }
+
+             },
+             contentCheck:function(){
+                // return $("#content").val().length < 255;
+                var content = $("#content").val().length;
+                console.log(content)
+                if(content < 255){
+                   return true;
+                }else{
+                   return false
+                }
+             }
+         },
+         descriptions:{
+             title:{
+                 required : '委托标题未填写',
+                 conditional : '委托标题过长'
+             },
+             content:{
+                required : '案件描述未填写',
+                conditional : '案件描述过长'
+             },
+             classification:{
+                required : '案件类型未选择'
+             },
+             accountMoney:{
+                required : '涉案金额未选择'
+             },
+             entrustcost:{
+                required : '委托费用未填写'
+             },
+             linkage:{
+                required : '案件地区未选择'
+             }
+         }
+     });
+})
+</script>
+<!-- 地区选择 -->
+<script type="text/javascript" src="__STA__/areaselect/address.js"></script>
+<script type="text/javascript" src="__STA__/areaselect/accountMoney.js"></script>
+<script type="text/javascript" src="__STA__/areaselect/classification.js"></script>
+<script type="text/javascript">
+    var selectAccountMoney = new MobileSelect({
+        trigger: '#accountMoney',
+        title: '涉案金额',
+        wheels: accountmoney,
+        transitionEnd:function(indexArr, data){
+            //console.log(data);
+        },
+        callback:function(indexArr, data){
+            console.log(data)
+            var accountMoneyText = data['0'].value ;
+            var accountMoneyValue = data['0'].id;
+            $('#accountMoney').val(accountMoneyText);
+            $('#hideAccountMoney').val(accountMoneyValue);
+        }
+    });
+    var selectLinkage = new MobileSelect({
+        trigger: '#linkage',
+        title: '案件地区',
+        wheels: addr,
+        transitionEnd:function(indexArr, data){
+            //console.log(data);
+        },
+        callback:function(indexArr, data){
+            var areaText = data['0'].value + '-'+ data['1'].value + '-' + data['2'].value;
+            var areaValue = data['2'].id;
+            $('#linkage').val(areaText);
+            $('#hideLinkage').val(areaValue);
+        }
+    });
+    var selectClassification = new MobileSelect({
+        trigger: '#classification',
+        title: '案件类型',
+        wheels: classification,
+        transitionEnd:function(indexArr, data){
+            //console.log(data);
+        },
+        callback:function(indexArr, data){
+            // var areaText = data['0'].value + '-'+ data['1'].value + '-' + data['2'].value;
+            // var areaValue = data['2'].id;
+            // $('#linkage').val(areaText);
+            // $('#hideLinkage').val(areaValue);
+            var classificationText = '';
+            var classificationValue = '';
+            for( index in data){
+                classificationText += data[index].value + '/';
+                classificationValue = data[index].id;
+            }
+            classificationText = classificationText.slice(0,-1);
+            $('#classification').val(classificationText);
+            $('#hideClassification').val(classificationValue);
+        }
+    });
+</script>
+<!-- 新闻滚动 -->
+<script type="text/javascript">
+    $.fn.extend({
+        Scroll: function(opt, callback) {
+            //参数初始化
+            if (!opt) var opt = {};
+            var _this = this.eq(0).find("ul:first");
+            var lineH = _this.find("li:first").height(), //获取行高
+                line = opt.line ? parseInt(opt.line, 10) : parseInt(this.height() / lineH, 10), //每次滚动的行数，默认为一屏，即父容器高度
+                speed = opt.speed ? parseInt(opt.speed, 10) : 500, //卷动速度，数值越大，速度越慢（毫秒）
+                timer = opt.timer ? parseInt(opt.timer, 10) : 3000; //滚动的时间间隔（毫秒）
+
+            if (line == 0) line = 1;
+            var upHeight = 0 - line * lineH;
+            //滚动函数
+            scrollUp = function() {
+                _this.animate({
+                    marginTop: upHeight
+                }, speed, function() {
+                    for (i = 1; i <= line; i++) {
+                        _this.find("li:first").appendTo(_this);
+                    }
+                    _this.css({
+                        marginTop: 0
+                    });
+                });
+            }
+            //鼠标事件绑定
+            _this.hover(function() {
+                clearInterval(timerID);
+            }, function() {
+                timerID = setInterval("scrollUp()", timer);
+            }).mouseout();
+        }
+    })
+    $(function() {
+        $('#donate_carousel').Scroll({
+            line: 1,
+            speed: 800,
+            timer: 2000
+        });
+    });
+</script>
+{include file="public/footer" /}

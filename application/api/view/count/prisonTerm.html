@@ -1,0 +1,28 @@
+{include file="public/header" /}
+	<div class="container">
+		<h1 style="text-align:center"><span>计算刑期</span></h1>
+		<p>律师费是指律师向法律事务委托人收取服务费用，收费标准是根据案件类型、地区，采取按件收费、按标的额比例收费和计时收费等方式。</p>
+		<p>律师收费的方式及收取多少律师费用都是由律师和委托人在一定范围之内协商确定的，律师不能私自收取委托人的其他费用，律师收费应遵循公开公平、自愿有偿、诚实信用的原则。律师网收费标准栏目，为您详情分享2017各地区最新律师费收取标准。想了解律师费收取标准，就上律师刑事网。</p>
+		<p>提醒:注意各地区的律师收费标准不一致</p>
+		<p>免责声明：数据均来自互联网或者政府网站上的信息，经供参考！如有错误，可以反馈我们。</p>
+		<div style="text-align:center"><img src="__IMG__/prisonTerm.png" alt=""></div>
+		<h1 style="text-align:center"><span>计算刑期</span></h1>
+		<div class="prison-main">
+			<div class='prison-charge'>
+			    <span class="prison-left">罪名分类</span>
+			    <span class="prison-right">></span>
+				<select name="Charge" id="charge">
+				</select>
+			</div>
+			<div class="prison-line"></div>
+			<div class='prison-specific'>
+				<span class="prison-left">具体罪名</span>
+				<span class="prison-right">></span>
+				<select  name="specific" id="specific" >		
+				</select>
+			</div>
+		</div>
+		<div id="term" ></div> 
+	</div>
+{include file="public/footer" /}
+<script type="text/javascript" src="__STA__/countSentence.js"></script>

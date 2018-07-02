@@ -1,0 +1,159 @@
+{include file="public/header" /}
+<link rel="stylesheet" type="text/css" href="__STA__/areaselect/mobileSelect.css">
+<script type='text/javascript' src='__STA__/areaselect/mobileSelect.js'></script>
+<div class="img-common"><img src="__IMG__/online/01.jpg" width=100% /></div>
+<div class="online-head">
+	<img src="__IMG__/online/02.png">
+	<span>请描述您的问题</span>
+</div>
+<div class="entrust-table">
+	<form class="zform zform-radius" action="" id="form_1" method="post" enctype="multipart/form-data" onsubmit="return true">
+		<div class="entrust-table-introduce"><span>亲爱的用户，请仔细填写以下各项</span></div>
+		<fieldset class="zform-fieldset">
+			<div class="zform-control entrust-table-item">
+				<div class="item-title"><span>案件类型：</span></div>
+                <div class="control-field">
+                    <input type="hidden" name="classification" id="hideClassification">
+                    <input class="field-select" data-required="true" data-descriptions="classification" placeholder="请选择案件类型" id="classification">
+                </div>
+            </div>
+			<div class="zform-control entrust-table-item">
+				<div class="item-title"><span>所在地区：</span></div>
+                <div class="control-field">
+                    <input  type="hidden" name="address" id="hideLinkage" >
+                    <input class="field-select" type="text" data-required="true" data-descriptions="linkage" placeholder="请选择所在地区" id="linkage" >
+                </div>
+            </div>
+			<div class="zform-control entrust-table-item" style="height:120px">
+                <div class="item-title"><span>问题描述：</span></div>
+                    <div class="control-field">
+                        <textarea id="content" class="field-area" placeholder="请输入不少于20字，注意隐藏姓名等敏感信息" rows="4" data-required="true" data-descriptions="content" data-conditional="contentCheck" name="content"></textarea>
+                    </div>
+            </div>
+		</fieldset>
+		<input type="submit"  value="提交我的咨询" class="zbtn zbtn-primary zbtn-full zbtn-lg" id='memberSubmit' style="width:50%;margin:0 auto;background:#3b4173;padding: 5px 16px;"> 
+	</form>
+ </div>
+ <div class="consulting-online-example">
+	<div style="font-weight:bolder"><span>查看示例解答</span></div>
+	<div class="online-example-content">
+		<div style="font-weight:900;font-size:13px;"><span>我的问题</span></div>
+		<div>
+			<img src="__IMG__/online/04.png" style="width:12px;margin-right:4px" >
+			<span style="font-size:12px">帮助别人寄了3次冰毒共计32克要判多少年？</span>
+			<span style="font-size:14px;margin-left:4px">2017-11-29</span>
+		</div>
+		<div>
+			<img src="__IMG__/online/05.png" style="width:16px;margin-right:4px" >
+			<span style="font-size:14px;color:#3b4173;margin-right:4px;font-weight:900">律师网</span>
+			<span style="font-size:14px;color:#758fc8;margin-right:4px;">专注刑事案件</span>
+			<div style="border-bottom:1px solid #ccc;width:100%"></div>
+			<p style="margin-top:8px">法律分析</p>
+			<p>一、根据《劳动合同法》第七条的规定，自用工之日起,你和公司建立了劳动关系，你的权利依法受到法律保护，你咨询的
+问题属于工.</p>
+			<p>二.  根据《劳动合同法》第三十条的规定，公司应该按照劳动
+合同约定和国家规定按时足额支付工资,公司拖欠工资的行为
+违反了法律。</p>
+			<p>三、根据《劳动合同法》第四十六条的规定,公司不按劳动合
+约定足额支付工资。你有权解除劳动关系并要求公司支付经济
+偿。</p>
+			<p>四、根据《劳动合同法》第四十七条的规定,经济补偿金按照
+辞职前12个月平均工资乘以你在公司的工龄(工作超过六个月
+足一年。</p>
+		</div>
+	</div>
+ </div>
+<div class="img-common"><img src="__IMG__/online/11.jpg" width=100% /></div>
+{include file="public/footer" /}
+<script type="text/javascript" src="__STA__/areaselect/address.js"></script>
+<script type="text/javascript" src="__STA__/areaselect/classification.js"></script>
+<script type="text/javascript">
+	var selectLinkage = new MobileSelect({
+	    trigger: '#linkage',
+	    title: '所在地区',
+	    wheels: addr,
+	    transitionEnd:function(indexArr, data){
+	        //console.log(data);
+	    },
+	    callback:function(indexArr, data){
+	        var areaText = data['0'].value + '-'+ data['1'].value + '-' + data['2'].value;
+	        var areaValue = data['2'].id;
+	        $('#linkage').val(areaText);
+	        $('#hideLinkage').val(areaValue);
+	    }
+	});
+	var selectClassification = new MobileSelect({
+	    trigger: '#classification',
+	    title: '案件类型',
+	    wheels: classification,
+	    transitionEnd:function(indexArr, data){
+	        //console.log(data);
+	    },
+	    callback:function(indexArr, data){
+	        // var areaText = data['0'].value + '-'+ data['1'].value + '-' + data['2'].value;
+	        // var areaValue = data['2'].id;
+	        // $('#linkage').val(areaText);
+	        // $('#hideLinkage').val(areaValue);
+	        var classificationText = '';
+	        var classificationValue = '';
+	        for( index in data){
+	            classificationText += data[index].value + '/';
+	            classificationValue = data[index].id;
+	        }
+	        classificationText = classificationText.slice(0,-1);
+	        $('#classification').val(classificationText);
+	        $('#hideClassification').val(classificationValue);
+	    }
+	});
+</script>
+<script type="text/javascript">
+$(function(){
+     $.mvalidateExtend({
+     });
+     $("#form_1").mvalidate({
+         type:1,
+         onKeyup:true,
+         sendForm:true,
+         firstInvalidFocus:false,
+         valid:function(event,options){
+             //点击提交按钮时,表单通过验证触发函数
+             
+          return true;
+          event.preventDefault();
+           
+         },
+         invalid:function(event, status, options){
+             //点击提交按钮时,表单未通过验证触发函数
+         },
+         eachField:function(event,status,options){
+             //点击提交按钮时,表单每个输入域触发这个函数 this 执向当前表单输入域，是jquery对象
+         },
+         eachValidField:function(val){},
+         eachInvalidField:function(event, status, options){},
+         conditional:{
+             contentCheck:function(){
+                // return $("#content").val().length < 255;
+                var content = $("#content").val().length;
+                console.log(content)
+                if(20<content < 255){
+                   return true;
+                }else{
+                   return false
+                }
+             }
+         },
+         descriptions:{
+             content:{
+                required : '案件描述未填写',
+                conditional : '案件描述过长'
+             },
+             classification:{
+                required : '案件类型未选择'
+             },
+             linkage:{
+                required : '案件地区未选择'
+             }
+         }
+     });
+})
+</script>

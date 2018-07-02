@@ -1,0 +1,130 @@
+{include file="public/header" /}
+	<div class="container">
+		<h1 style="text-align:center"><span>律师收费标准</span></h1>
+		<p>律师费是指律师向法律事务委托人收取服务费用，收费标准是根据案件类型、地区，采取按件收费、按标的额比例收费和计时收费等方式。</p>
+		<p>律师收费的方式及收取多少律师费用都是由律师和委托人在一定范围之内协商确定的，律师不能私自收取委托人的其他费用，律师收费应遵循公开公平、自愿有偿、诚实信用的原则。律师网收费标准栏目，为您详情分享2017各地区最新律师费收取标准。想了解律师费收取标准，就上律师刑事网。</p>
+		<p>提醒:注意各地区的律师收费标准不一致</p>
+		<p>免责声明：数据均来自互联网或者政府网站上的信息，经供参考！如有错误，可以反馈我们。</p>
+		<div style="text-align:center"><img src="__IMG__/lawyerfee.jpg" alt=""></div>
+		<h1 style="text-align:center"><span>律师费计算机</span></h1>
+		<div class="law-money" style="margin-top:42px">
+			<!-- 所在地点 -->
+			<div class="ssf-first">
+				<span class="span-right-j">></span>
+				<select name="site" id="city" class="select-style-type" >
+
+				</select>
+				<div class="name-title-style">
+					<span>所在地区</span>
+				</div>
+			</div>
+			<!-- end所在地点 -->
+
+			<!-- 案件类型 -->
+			<div class="ssf-first">
+				<span class="span-right-j">></span>
+				<select name="site" id="type" class="select-style-type" >
+
+				</select>
+				<div class="name-title-style">
+					<span>案件类型</span>
+				</div>
+			</div>
+
+			<!-- 按钮 -->
+			<div class="bu-inp">
+				<input type="reset" name="czbutt" id="reset" class="czbutt-c" value="重置"><input type="button" name="jsbutt" class="jsbutt-j" value="计算" id="submit" >
+			</div>
+			<!-- end 按钮 -->
+			<div id="info"></div>
+		</div>
+	</div>
+{include file="public/footer" /}
+<script type="text/javascript">
+
+	$(function(){
+		var city= $("#city");
+		var type=$("#type");
+		var submit=$("#submit");
+		var info=$("#info");
+		var reset=$("#reset")
+	    //初始化
+
+	    city.append("<option >请选择</option>");
+		type.append("<option >请选择</option>");
+
+		$.ajax({  
+		    type : "GET",
+		    url : "__STA__/jspc_lsf.xml ", 
+		    success : func_suc_getXmlCity
+		}); 
+		// 将城市放入选择框
+		function func_suc_getXmlCity(xml) {  
+          
+	        //jquery的查找功能              
+	        var allCity = $(xml).find("city");      
+	        //jquery的遍历与查询匹配 eq功能,并将其放到下拉框中  
+	        allCity.each(function(i) {  
+	            city.append("<option value=" + i + ">"  
+	                    + allCity.eq(i).attr("text") + "</option>");  
+	        }); 
+	    }
+	        
+	    	//当城市发生改变的时候
+	        city.change(function(){
+	        	type.css("color","red");
+	        	type.empty();
+	        	info.empty();
+	        	$.ajax({  
+	        	    type : "GET",
+	        	    url : "__STA__/jspc_lsf.xml ", 
+	        	    success : func_suc_getXmlType
+	        	});
+	        	
+	    		
+	    	})
+	    	type.change(function(){
+	    		type.css("color","#717070");
+	    		info.empty()
+	    	})
+	    	// 将案件类型放入到选择框
+	    	function func_suc_getXmlType(xml){
+	    		var numCity=parseInt(city.val());
+	    		var allType=$(xml).find("city").eq(numCity);
+	    		type.append("<option style='color:red'>请选择</option><option value='criminal'>"  
+	                    + allType.children("criminal").attr("name") + "</option><option value='civil'>"
+	                    + allType.children("civil").attr("name")+"</option><option value='administrative'>"
+	                    + allType.children("administrative ").attr("name")+"</option>"
+	                    )
+
+	    	}
+
+	    	//提交按钮点击事件
+	    	submit.click(function(){
+
+	    		info.empty();
+	    		$.ajax({  
+	    		    type : "GET",
+	    		    url : "__STA__/jspc_lsf.xml ", 
+	    		    success : func_suc_getXmlData
+	    		});
+	    	})
+	    	// 点击提交按钮事件
+	    	reset.click(function(){
+	    		city.val("请选择");
+	    		type.val("请选择");
+	    		info.empty();
+	    	})
+
+	    	//获取数据
+	    	function func_suc_getXmlData(xml){
+	    		var numCity=parseInt(city.val());
+	    		var selectType= type.val();
+	    		data=$(xml).find("city").eq(numCity).children(selectType).text();
+
+	    		info.append(data);
+	    	}
+
+	     	
+	})
+</script>

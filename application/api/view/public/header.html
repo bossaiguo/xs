@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="__STA__/bootstrap.min.css">
+    <link rel="stylesheet" href="__STA__/rewrite.css">
+    <!-- <link rel="stylesheet" type="text/css" href="__STA__/formvalidate/css/reset.css"> -->
+    <link rel="stylesheet" type="text/css" href="__STA__/formvalidate/css/common.css">
+    <link rel="stylesheet" type="text/css" href="__STA__/formvalidate/css/iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="__STA__/formvalidate/css/form.css">
+    <link rel="stylesheet" type="text/css" href="__STA__/formvalidate/css/button.css">
+    <link rel="stylesheet" type="text/css" href="__STA__/formvalidate/css/validate.css">
+    <link rel="stylesheet" type="text/css" href="__STA__/formvalidate/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="__STA__/uploadImg.css">
+    <script type='text/javascript' src='__STA__/jquery-3.2.1.min.js'></script>
+    <script type='text/javascript' src='__STA__/bootstrap.min.js'></script>
+    <script type="text/javascript" src="__STA__/formvalidate/js/jquery-mvalidate.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-inverse" style='width:100%;overflow:hidden'>
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{:url('/')}">
+      		<img src="__IMG__/index/01.png" alt="">
+      </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav ">
+        <li class=""><a href="prisonterm" class='rewrite-nav'>计算刑期</a></li>
+        <li class=""><a href="countfee" class='rewrite-nav'>计算律师费</a></li>
+        <li class=""><a href="online" class='rewrite-nav'>律师解答</a></li>
+        <li class=""><a href="caseentrust" class='rewrite-nav'>案件委托</a></li>
+        <li class=""><a href="region" class='rewrite-nav'>业务范围</a></li>
+        <li class=""><a href="cooperation" class='rewrite-nav'>合作客户</a></li>
+        <li class=""><a href="caseprocess" class='rewrite-nav'>案件进程</a></li>
+        <li class=""><a href="#" class='rewrite-nav'>常见问题</a></li>
+        <li class=""><a href="#" class='rewrite-nav'>查法规</a></li>
+        <li class=""><a href="aboutus">关于我们</a></li>
+      </ul>
+    </div><!-- .navbar-collapse -->
+  </div><!-- .container-fluid -->
+</nav>
+<div class="row" style="height:28px;line-height:28px">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-8 login-region">
+        {if condition="cookie('username')"}
+            <span style="color:#428bca">登录成功!</span>
+            <a href='register'><span>退出登录</span></a>
+        {else}
+            <a id="loginShow"><span>登录</span></a>
+            <a href='register'><span>注册</span></a>
+            <div class="login-table">
+                <div class="login-way login-way-1 login-choice" onclick="loginWay(1)"><span>账号登录</span></div>
+                <div class="login-way login-way-2" onclick="loginWay(2)"><span>短信登录</span></div>
+                <div class="login-con-1" style="display:block">
+                    <form class="zform zform-radius" action="" id="login-form" method="post" enctype="multipart/form-data" onsubmit="return true">
+                        <fieldset class="zform-fieldset">
+                            <div class="zform-control entrust-table-item" style="margin-top:8px">
+                                <div class="item-title"><span>用户名：</span></div>
+                                <div class="control-field">
+                                    <input type="text" id='login-username' name='username' class="field-text entrust-field-text" placeholder="请输入用户名" data-conditional="usernameCheck" data-required="true" data-descriptions="loginUsername" isrepeat="" style="height:32px">
+                                </div>
+                                <div class="control-field" style="margin-top:5px">
+                                    <div class="item-title"><span>密码：</span></div>
+                                    <input type="password" id='login-password' name='password' class="field-text entrust-field-text" placeholder="请输入密码" data-conditional="passwordCheck" data-required="true" data-descriptions="loginPassword" isrepeat="" style="height:32px">
+                                </div>   
+                                 <input type="submit"  value="登录" class="zbtn zbtn-primary zbtn-full zbtn-lg" id='memberSubmit'style="padding:5px 4px;font-size: 15px;width: 58%;margin: 10px auto;background:#3b3c78" >   
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="login-con-2" style="display:none">待开发</div>
+            </div>
+        {/if}
+	</div>
+	<div class="col-xs-3">
+			<a href=""><img src="__IMG__/index/02.png" alt=""><span>深圳</span></a>
+	</div>
+</div>
+<script type="text/javascript">
+    $("#loginShow").click(function(){
+        $(".login-table").toggle();
+    });
+    function loginWay(a){
+        for (var i = 1; i <= 2; i++) {
+            $(".login-con-"+i).hide();
+            $(".login-way-"+i).removeClass("login-choice");
+        }
+        $(".login-con-"+a).show();
+        $(".login-way-"+a).addClass("login-choice");
+    }
+</script>
+<script type="text/javascript">
+    $(function(){
+         $.mvalidateExtend({
+         });
+     });
+    $("#login-form").mvalidate({
+        type:1,
+        onKeyup:true,
+        sendForm:true,
+        firstInvalidFocus:false,
+        valid:function(event,options){
+            //点击提交按钮时,表单通过验证触发函数
+            location.reload();
+            event.preventDefault();
+            // alert('11111')
+        },
+        invalid:function(event, status, options){
+            //点击提交按钮时,表单未通过验证触发函数
+        },
+        eachField:function(event,status,options){
+            //点击提交按钮时,表单每个输入域触发这个函数 this 执向当前表单输入域，是jquery对象
+        },
+        eachValidField:function(val){},
+        eachInvalidField:function(event, status, options){},
+        conditional:{
+            usernameCheck:function(){
+                var username=$('#login-username').val();
+                var nameStyle= /^[a-zA-Z0-9_\u4e00-\u9fa5]+$/.test(username);
+                return nameStyle;
+            },
+            passwordCheck:function(){
+                var password=$('#login-password').val();
+                var username=$('#login-username').val();
+                var checkResult = false;
+                $.ajax({
+                    url:"index.php/api/member/ajaxLogin",   
+                    type:'POST', 
+                    async:false, 
+                    dataType:'json',
+                    data: {password:password,username:username},
+                    success:function(data){
+                        if(data == 'success'){
+                            checkResult = true;
+                        }else{
+                            checkResult = false;
+                        }
+                    },
+                    error:function(responseText){
+                        console.log(responseText)
+                    }
+                });
+                return checkResult;
+            }
+        },
+
+        descriptions:{
+            loginUsername:{
+                required : '请输入用户名',
+                conditional : '用户名或密码不对'
+            },
+            loginPassword:{
+                 required : '请输入密码',
+                 conditional : '用户名或密码不对'
+
+            }
+        }
+    });   
+</script>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="__STA__/bootstrap.min.css">
+	<link rel="stylesheet" href="__STA__/rewrite.css">
+	<script type='text/javascript' src='__STA__/jquery-3.2.1.min.js'></script>
+	<script type='text/javascript' src='__STA__/bootstrap.min.js'></script>
+</head>
+<body>
+	{include file="public/header" /}
+	<div class='main-content' style='width:100%;overflow:hidden'>
+			<!-- 轮播图 -->
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			  <!-- Indicators -->
+			  <ol class="carousel-indicators">
+			    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			  </ol>
+
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner" role="listbox">
+			    <div class="item active">
+			      <img src="__IMG__/index/03.jpg" alt="...">
+			      <div class="carousel-caption">
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- end 轮播图 -->
+
+			<!-- 导航列表 -->
+			<div class="nav-lists">
+				<!-- <div class="col-xs-1"></div> -->
+				<div class="nav_item">
+					<a href="countfee" class="">
+					  <img src="__IMG__/index/04.png" alt="">
+					   <div><span>计算刑期</span></div>
+					</a>
+				</div>
+				<div class="nav_item">
+					<a href="prisonterm" class="">
+					  <img src="__IMG__/index/05.png" alt="">
+					   <div><span>计算律师费</span></div>
+					</a>
+				</div>
+				<div class="nav_item">
+					<a href="#" class="">
+					  <img src="__IMG__/index/06.png" alt="">
+					   <div><span>律师解答</span></div>
+					</a>
+				</div>
+				<div class="nav_item">
+					<a href="#" class="">
+					  <img src="__IMG__/index/07.png" alt="">
+					   <div><span>案件委托</span></div>
+					</a>
+				</div>
+				<div class="nav_item">
+					<a href="#" class="">
+					  <img src="__IMG__/index/08.png" alt="" >
+					   <div><span>业务范围</span></div>
+					</a>
+				</div>
+				<div class="nav_item">
+					<a href="#" class="">
+					  <img src="__IMG__/index/09.png" alt="" >
+					   <div><span>合作客户</span></div>
+					</a>
+				</div>
+				<div class="nav_item">
+					<a href="#" class="">
+					  <img src="__IMG__/index/10.png" alt="" >
+					   <div><span>案件进程</span></div>
+					</a>
+				</div>
+				<div class="nav_item">
+					<a href="#" class="">
+					  <img src="__IMG__/index/11.png" alt="" >
+					   <div><span>常见问题</span></div>
+					</a>
+				</div>
+				<div class="nav_item">
+					<a href="#" class="">
+					  <img src="__IMG__/index/12.png" alt="" >
+					   <div><span>查法规</span></div>
+					</a>
+				</div>
+				<div class="nav_item">
+					<a href="#" class="">
+					  <img src="__IMG__/index/13.png" alt="" >
+					   <div><span>关于我们</span></div>
+					</a>
+				</div>
+			</div>
+			<!-- end 导航列表 -->
+			<!-- company advantage -->
+			<div class="jumbotron company-advantage row" style='width:100%;overflow:hidden'>
+			  	<div class=" jumbotron pull-left" style="width:47%;margin-right:4%;text-align:center">
+		  			<img src="__IMG__/index/14.png" alt="" >
+		  			<div><h3>服务保障</h3></div>
+		  			<div><span>10万律师，值得您信赖</span></div>
+				</div>
+			  	<div class=" jumbotron pull-left" style="width:47%">
+					<img src="__IMG__/index/15.png" alt="" >
+					<div><h2>信息保障</h2></div>
+					<span>保护用户信息，避免泄露</span>
+				</div>
+				<div class=" jumbotron pull-left" style="width:47%;margin-right:4%">
+					<img src="__IMG__/index/16.png" alt="" >
+					<div><h2>价格透明</h2></div>
+					<div><span>明码标价，透明实惠</span></div>
+				</div>
+			  	<div class=" jumbotron pull-left" style="width:47%">
+					<img src="__IMG__/index/17.png" alt="" >
+					<div><h2>资质认证</h2></div>
+					<div><span>服务商100%实名认证</span></div>
+				</div>
+			</div>
+			<!-- end  company advantage-->
+	</div>
+	<!-- footer -->
+	{include file="public/footer" /}
+	<!-- end footer -->
+<script type="text/javascript">
+	$('.carousel').carousel({
+	  interval: 2000
+	})
+</script>
